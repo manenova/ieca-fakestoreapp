@@ -26,13 +26,17 @@ const Home = () => {
   };
 
   return (
-  
-      <div className="flex-1 flex flex-col gap-4 p-4">
-        <h1>FakeStore</h1>
-        <SearchBar handleSearch={handleSearch} />
+    <div className="bg-white">
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">
+        <div className="flex justify-between items-center">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-90">FakeStore</h2>
+          <SearchBar handleSearch={handleSearch} />
+        </div>
+        <hr className="mt-4"/>
+
         {loading && <p>Cargando...</p>}
         {!loading && (
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 ">
+          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {filteredProducts.length > 0
               ? filteredProducts.map((product) => (
                 <ProductItem key={product.id} product={product} />
@@ -43,6 +47,8 @@ const Home = () => {
           </div>
         )}
       </div>
+    </div>
+  
   );
 };
 

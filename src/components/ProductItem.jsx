@@ -31,17 +31,24 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <>
-      <div className="flex flex-col border border-gray-300 shadow-sm rounded-xl p-4">
-        <img src={product.image} alt={product.title} className="w-28 h-28 object-cover self-center" />
-        <h2 className="text-center font-bold  hover:text-blue-900">
-        <Link to={`/productos/${product.id}`}> {product.title}</Link>
-        </h2>
-        <span className="text-center">${product.price}</span>
-        { buscarObjeto() ? <button className="bg-red-700 hover:bg-red-500 text-white rounded-md p-2 mt-2" onClick={checkElement}>Quitar</button> :<button className="bg-black hover:bg-gray-800 text-white rounded-md p-2 mt-2" onClick={checkElement}>Agregar</button>}
-      
-      </div>
-     </>
+   
+      <div className="group relative">
+        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+          <img src={product.image} alt={product.title} className="h-auto w-80 object-cover object-center lg:h-80 lg:w-80"/>
+        </div>
+
+          <div class="mt-4 flex justify-between">
+            <div>
+              <h3 class="text-sm text-blue-500">
+                 <Link to={`/productos/${product.id}`}> {product.title}</Link>
+              </h3>
+            </div>
+            <p class="text-sm font-medium text-gray-900">${product.price}</p>
+		  </div>
+		  { buscarObjeto() ? <button className="w-full bg-red-700 hover:bg-red-500 text-white rounded-md p-2 mt-2" onClick={checkElement}>Quitar</button> :<button className="w-full bg-black hover:bg-gray-800 text-white rounded-md p-2 mt-2" onClick={checkElement}>Agregar</button>}
+		
+        </div>
+  
   );
  
 };

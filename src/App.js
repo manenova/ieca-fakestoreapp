@@ -9,7 +9,7 @@ function App() {
   return (
     <CartProvider>
       <BrowserRouter>
-        <main className="min-h-screen flex flex-col">
+        <main className="relative">
           <NavBar />
           <Routes>
             <Route path="/" exact element={<Home />} />
